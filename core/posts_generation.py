@@ -23,3 +23,13 @@ class PostFactory(factory.django.DjangoModelFactory):
         return x
 
     status = 'published'
+
+    @factory.post_generation
+    def groups(self, create, extracted, **kwargs):
+        if not create:
+            # Simple build, or nothing to add, do nothing.
+            return
+        if extracted:
+            self.tags.add(extracted)
+        else:
+            self.tags.add("fun", "mem", "python", "code", "blog", "technology", "design", "learning", "interesting", "entertainment", 'sport', 'wow-content', 'lol')

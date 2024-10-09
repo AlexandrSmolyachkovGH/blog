@@ -10,29 +10,12 @@
     </h1>
     <div class="row">
         <div class="col-12 col-lg-8">
-            {% for post in posts %}
-                <a href="#" class="text-decoration-none infscroll">
-                    <div class="card-border-0 pb-3 sm-5">
-                        <div class="row">
-                            <div class="col-8">
-                                <div class="card-body p-0">
-                                    <div class="pb-2 text-body infscroll-author">{{post.author}}</div>
-                                </div>
-                                <h1 class="mb-1 text-body fw-bold">{{post.title|truncatechars:25}}</h1>
-                                <h2 class="text-muted fs-6 d-none d-md-block">{{post.sub_title}}</h2>
-                                <div class="text-muted">{{post.content|truncatechars:100}}</div>
-                                <div class="text-muted infscroll-date">Дата создания: {{post.create_time|date:'d.m.Y'}}</div>
-                            </div>
-                            <div class="col-4">
-                                <img src="https://placeholder.apptor.studio/300/200/" class="img-fluid float-end">
-                            </div>
-                        </div>
-
-                    </div>
-                </a>
-            {% endfor %}
+            {% include 'core/components/post_list_elements.html' %}
         </div>
-        <div class="d-none d-lg-block col-4"></div>
+        <div class="d-none d-lg-block col-4">
+            {% add_tag %}
+            {% include 'core/footer.html' %}
+        </div>
 
     </div>
 {% endblock %}

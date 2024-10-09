@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
-
-
+from taggit.managers import TaggableManager
+from django.urls import reverse
 class Post(models.Model):
 
     options = [
@@ -18,8 +18,13 @@ class Post(models.Model):
     update_time = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=10, choices=options, default='draft')
 
+    tags = TaggableManager()
+
     class Meta:
         ordering = ('-create_time',) #Newest posts at top
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('post_single', args=[self.slug])

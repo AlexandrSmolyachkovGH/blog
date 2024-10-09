@@ -1,0 +1,45 @@
+{% extends 'core/post_single_base.html' %}
+
+{% block mid %}
+    <div style="max-width: 1000px;">
+        <div class="text-muted">
+            {{ post.author}}
+        </div>
+        <div class="text-muted">
+            {{ post.update_time|date:'d.m.Y'}}
+        </div>
+        <h1 class="fw-bold pb-2">
+            {{ post.title}}
+        </h1>
+        <h2 class="text-muted fs-4 pb-3">
+            {{ post.sub_title}}
+        </h2>
+        <h6 class="fs-16">
+            {{ post.content}}
+        </h6>
+    </div>
+{% endblock %}
+
+{% block right %}
+    {% add_tag %}
+    {% include 'core/footer.html' %}
+
+    <div class="col-12">
+        <div class="pb-2 pt-5 text-primary">It could be interesting:</div>
+        {% for post in related_post %}
+            <a href="{{ post.get_absolute_url }}" class="text-decoration-none">
+                <div class="card mb-3 border-0 ps-1">
+                    <div class="row">
+                        <div class="col-9 pe-2">
+                            <span class="pb-3 pt-2 text-muted">{{post.author}}</span>
+                            <h1 class="mb-1 fs-6 p-0 text-dark fw-bold">{{post.title}}</h1>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+
+
+
+{% endblock %}

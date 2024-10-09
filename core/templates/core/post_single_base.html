@@ -1,0 +1,13 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+<div class="container" style="max-width: 1500px|important">
+  <div class="row">
+    <div class="col-8 pt-5">{% block mid %} {% endblock %}</div>
+    <div class="col-4 pt-5">{% block right %} {% endblock %}</div>
+  </div>
+
+</div>
+
+{% endblock %}
