@@ -4,7 +4,7 @@
       <h4 class="pb-2 fw-bold fs-14">Tags</h4>
       {% for tag in tags %}
         <span class="border border-gray p-1 px-3 mb-2 me-1 rounded-lg" style="display: inline-block;">
-          <a href="" class="text-decoration-none text-dark fs-14 fw-500">
+          <a href="{% url 'tag_post' tag.slug %}" class="text-decoration-none text-dark fs-14 fw-500">
             {{tag.name}}
           </a>
         </span>

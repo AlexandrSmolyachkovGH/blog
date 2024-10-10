@@ -1,0 +1,15 @@
+{% extends 'core/post_single_base.html' %}
+
+{% block mid %}
+    {% if posts %}
+      <span class="text-muted">Searching results: </span> {{ request.GET.q }}
+    {% else %}
+      <span class="text-muted">No posts found for: </span> {{ request.GET.q }}
+    {% endif %}
+    {% include 'core/components/search_list_elements.html' %}
+
+{% endblock %}
+
+{% block right %}
+
+{% endblock %}

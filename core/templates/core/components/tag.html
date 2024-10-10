@@ -1,0 +1,13 @@
+{% extends 'core/post_single_base.html' %}
+
+{% block mid %}
+    <h4>Вы смотрите посты с тегом: <strong>{{ tag|title }}</strong></h4>
+    {% include 'core/components/tags_list_elements.html' %}
+
+{% endblock %}
+
+{% block right %}
+    {% add_tag %}
+    {% include 'core/footer.html' %}
+
+{% endblock %}
