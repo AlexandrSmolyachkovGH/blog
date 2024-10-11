@@ -1,0 +1,26 @@
+{% extends 'core/post_single_base.html' %}
+
+{% block mid %}
+    <div style="max-width: 1000px;">
+        <div class="text-muted">
+            {{ post.author}}
+        </div>
+        <div class="text-muted">
+            {{ post.update_time|date:'d.m.Y'}}
+        </div>
+        <h1 class="fw-bold pb-2">
+            {{ post.title}}
+        </h1>
+        <h2 class="text-muted fs-4 pb-3">
+            {{ post.sub_title}}
+        </h2>
+        <h6 class="fs-16">
+            {{ post.content}}
+        </h6>
+    </div>
+    {% include 'core/components/form_reg.html' %}
+{% endblock %}
+
+{% block right %}
+
+{% endblock %}

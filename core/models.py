@@ -17,7 +17,6 @@ class Post(models.Model):
     create_time = models.DateTimeField(auto_now_add=True)
     update_time = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=10, choices=options, default='draft')
-
     tags = TaggableManager()
 
     class Meta:

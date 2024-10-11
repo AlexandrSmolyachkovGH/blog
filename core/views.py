@@ -1,9 +1,10 @@
 from django.shortcuts import render, get_object_or_404
-
+from django.urls import reverse_lazy
+from django.contrib.auth.views import LoginView, LogoutView
 from .forms import PostSearchForm
 from .models import Post
 from django.views.generic import ListView
-
+from django.contrib.auth.forms import AuthenticationForm
 
 # Create your views here.
 class HomeView(ListView):
@@ -49,3 +50,9 @@ class PostSearch(HomeView):
         if self.request.htmx:
             return 'core/components/search_list_elements.html'
         return 'core/search.html'
+
+class CustomLoginView(LoginView):
+    form_class = AuthenticationForm
+    template_name = 'core/authorization.html'
+    next_page = reverse_lazy('home_page')
+    extra_context = {'title': 'Авторизация'}

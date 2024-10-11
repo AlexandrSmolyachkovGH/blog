@@ -1,0 +1,16 @@
+<form action="{% url 'login' %}" method="POST">
+  {% csrf_token %}
+  <div class="mb-3">
+    <input type="text" class="form-control" name="username" placeholder="UserName..." required>
+  </div>
+  <div class="mb-3">
+    <input type="password" class="form-control" name="password" placeholder="Password..." required>
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" name="checkbox" id="check" required>
+    <label class="fs-14 text-muted form-check-label" for="check">
+    I am familiar with the site rules
+  </label>
+  </div>
+  <button type="submit" class="btn btn-success">Login</button>
+</form>
